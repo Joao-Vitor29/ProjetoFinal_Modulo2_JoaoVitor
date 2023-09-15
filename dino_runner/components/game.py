@@ -1,12 +1,10 @@
-import pygame  
+import pygame
 
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.utils.text_utils import draw_message_component
 from dino_runner.components.powerups.power_up_manager import PowerUpManager
-
-
 
 
 class Game:
@@ -25,7 +23,7 @@ class Game:
         self.y_pos_bg = 380
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
-        self.power_up_manager = PowerUpManager
+        self.power_up_manager = PowerUpManager()
 
     def execute(self):
         self.running = True
@@ -34,7 +32,7 @@ class Game:
                 self.show_menu()
 
         pygame.display.quit()
-        pygame.quit
+        pygame.quit()
     
     def run(self):
         self.playing = True
@@ -96,26 +94,26 @@ class Game:
         )
 
     def draw_power_up_time(self):
-        if self.player.has_power_up:
-            time_to_show = round((self.player.power_up_time - pygame.time.get_ticks())/1000, 2)
+        if self.player.has_power_up: #escudo no jogo
+            time_to_show = round((self.player.power_up_time - pygame.time.get_ticks()) / 1000, 2)
             if time_to_show >= 0:
                 draw_message_component(
-                    f"{self.player.type.capitalize()} disponível por {time_to_show} segundos",
+                    f"{self.player.type.capitalize()} dispinível por {time_to_show} segundos",
                     self.screen,
                     font_size = 18,
-                    pos_x_center = 500
+                    pos_x_center = 500, #posição da mensagem
                     pos_y_center = 40
                 )
             else:
                 self.player.has_power_up = False
                 self.player.type = DEFAULT_TYPE
 
+
     def handle_events_on_menu(self):
-        for events in pygame.event.get():
+        for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.playing = False
-                self. running = False
-
+                self.running = False
             elif event.type == pygame.KEYDOWN:
                 self.run()
     
@@ -145,5 +143,3 @@ class Game:
 
          
 
-
-            
