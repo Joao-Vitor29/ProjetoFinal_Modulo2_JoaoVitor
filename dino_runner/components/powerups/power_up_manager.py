@@ -1,6 +1,8 @@
 import random
 import pygame
+
 from dino_runner.components.powerups.shield import Shield
+
 
 class PowerUpManager:
     def __init__(self):
@@ -31,4 +33,3 @@ class PowerUpManager:
     def reset_power_ups(self):
         self.power_ups = []
         self.when_appears = random.randint(200, 300)
-        

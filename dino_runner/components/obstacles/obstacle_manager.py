@@ -9,12 +9,12 @@ class ObstacleManager:
     def __init__(self):
         self.obstacles = []
 
-
     def update(self, game):
         obstacle_type = [
             Cactus(),
             Bird(),
         ]
+
         if len(self.obstacles) == 0:
             self.obstacles.append(obstacle_type[random.randint(0,1)])
 
@@ -29,10 +29,12 @@ class ObstacleManager:
                 else:
                     self.obstacles.remove(obstacle)
 
-
     def reset_obstacles(self):
         self.obstacles = []
 
+    def draw(self, screen):
+        for obstacle in self.obstacles:
+            obstacle.draw(screen)
 
     def draw(self, screen):
         for obstacle in self.obstacles:
