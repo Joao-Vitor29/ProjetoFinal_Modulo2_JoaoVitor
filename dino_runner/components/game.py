@@ -74,7 +74,7 @@ class Game:
         pygame.display.update()
         pygame.display.flip()
         
-    def draw_blackground(self):
+    def draw_background(self):
         image_width = BG.get_width()
         self.screen.blit(BG, (self.x_pos_bg, self.y_pos_bg))
         self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
