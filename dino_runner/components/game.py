@@ -89,8 +89,8 @@ class Game:
         draw_message_component(
             f"score:{self.score}",
             self.screen,
-            pos_x_center = 500,
-            pos_y_center = 0
+            pos_x_center = 1000,
+            pos_y_center = 50
         )
 
     def draw_power_up_time(self): #tempo para mostrar
@@ -102,7 +102,7 @@ class Game:
                     self.screen,
                     font_size = 18,
                     pos_x_center = 500,
-                    pos_y_center = 40
+                    pos_y_center = 50
                 )
             else:
                     self.player.has_power_up = False
@@ -118,7 +118,7 @@ class Game:
                 self.run()
 
     def show_menu(self):
-        self.screen.fill((255, 255, 255))
+        self.screen.fill((50, 50, 50))
         half_screen_height = SCREEN_HEIGHT // 2
         hals_screen_width = SCREEN_WIDTH // 2 
         if self.death_count == 0:
@@ -129,14 +129,16 @@ class Game:
             draw_message_component(
                 f"Sua pontuaçao: {self.score}",
                 self.screen,
-                pos_y_center = half_screen_height - 50
+                pos_x_center = hals_screen_width + 400,
+                pos_y_center = half_screen_height - 200
             )
 
 
             draw_message_component(
                 f"Contagem de vidas: {self.death_count} ",
                 self.screen,
-                pos_y_center = half_screen_height - 100
+                pos_x_center = hals_screen_width + 400,
+                pos_y_center = half_screen_height - 250
             )
 
             self.screen.blit(ICON, (hals_screen_width - 40, half_screen_height - 30))
