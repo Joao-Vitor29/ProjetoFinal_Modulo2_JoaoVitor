@@ -62,7 +62,10 @@ class Game:
     def update_score(self):  
         self.score += 1
         if self.score % 100 == 0:
-            self.game_speed +=  5
+            self.game_speed +=  3
+
+        if self.score >= self.best_score:
+            self.best_score = self.score
     
     def draw(self): # tela do jogo
         self.clock.tick(FPS)  
