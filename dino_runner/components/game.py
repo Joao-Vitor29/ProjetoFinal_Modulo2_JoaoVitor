@@ -16,6 +16,7 @@ class Game:
         self.playing = False
         self.running = False
         self.score = 0
+        self.best_score = 0
         self.death_count = 0 
         self.game_speed = 20
         self.x_pos_bg = 0
@@ -87,10 +88,16 @@ class Game:
 
     def draw_score(self):
         draw_message_component(
-            f"score:{self.score}",
+            f"Pontuação: {self.score}",
             self.screen,
             pos_x_center = 1000,
             pos_y_center = 50
+        )
+        draw_message_component(
+            f"Melhor pontuação:{self.best_score}",
+            self.screen,
+            pos_x_center = 970,
+            pos_y_center = 80
         )
 
     def draw_power_up_time(self): #tempo para mostrar
@@ -129,8 +136,14 @@ class Game:
             draw_message_component(
                 f"Sua pontuaçao: {self.score}",
                 self.screen,
-                pos_x_center = hals_screen_width + 400,
+                pos_x_center = hals_screen_width + 410,
                 pos_y_center = half_screen_height - 200
+            )
+            draw_message_component(
+                f"Melhor pontuaçao: {self.best_score}",
+                self.screen,
+                pos_x_center = hals_screen_width + 400,
+                pos_y_center = half_screen_height - 150
             )
 
 
