@@ -89,8 +89,8 @@ class Game:
         draw_message_component(
             f"score:{self.score}",
             self.screen,
-            pos_x_center = 1000,
-            pos_y_center = 50
+            pos_x_center = 500,
+            pos_y_center = 0
         )
 
     def draw_power_up_time(self): #tempo para mostrar
